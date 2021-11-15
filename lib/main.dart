@@ -30,7 +30,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<Counter>(context);
+    final counter = Provider.of<Counter>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -42,9 +42,11 @@ class MyHomePage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '${counter.value}',
-              style: Theme.of(context).textTheme.headline4,
+            Consumer<Counter>(
+              builder: (context, counter, child) => Text(
+                '${counter.value}',
+                style: Theme.of(context).textTheme.headline4,
+              ),
             ),
           ],
         ),
