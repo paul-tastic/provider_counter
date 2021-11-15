@@ -48,13 +48,23 @@ class MyHomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                FloatingActionButton(
+                    onPressed: counter.decrement,
+                    tooltip: 'Decrement',
+                    child: Icon(Icons.remove)),
+                FloatingActionButton(
+                  onPressed: counter.increment,
+                  tooltip: 'Increment',
+                  child: Icon(Icons.add),
+                ),
+              ],
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: counter.increment,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
